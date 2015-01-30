@@ -1,5 +1,19 @@
 %p#notice= notice
 
+%h2 Order Number #{@order.id}
+
+%ul
+  %li Order date #{@order.created_at.strftime("%d %B %Y at %I:%M%p")}
+  %li Customer: #{@order.user.name}
+  %li Address:  #{@order.user.address}
+  %li Payment Type: #{@order.user.payment}
+
+%table
+  - @order.line_items.each do |item|
+    %tr
+      %td= item.product.name rescue ""
+      %td= item.product.price rescue 0
+
 
 = link_to 'Edit', edit_order_path(@order)
 \|

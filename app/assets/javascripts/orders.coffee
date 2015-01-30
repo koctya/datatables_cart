@@ -3,4 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-  $("#ordersTable").DataTable()
+  $("#ordersTable").dataTable
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#ordersTable').data('source')

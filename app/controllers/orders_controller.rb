@@ -4,12 +4,17 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+  #  @orders = Order.all
+    respond_to do |format|
+      format.html
+      format.json { render json: OrderDatatable.new(view_context) }
+    end
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = Order.find params[:id]
   end
 
   # GET /orders/new

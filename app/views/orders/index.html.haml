@@ -1,6 +1,6 @@
 %h1 Totally Imaginarium eComerce Orders
 
-%table#ordersTable
+%table#ordersTable.display{"data-source" => orders_url(format: "json")}
   %thead
     %tr
       %td Order Number
@@ -11,24 +11,7 @@
       %th Payment Type
       %th Order Date
 
-      %th
-      %th
-      %th
-
   %tbody
-    - @orders.each do |order|
-      %tr
-        %td= order.id
-        %td= order.line_items.first.product.name
-        %td= order.line_items.reduce(0) {|sum, item| sum += item.product.price}
-        %td= order.user.name
-        %td= order.user.address
-        %td= order.user.payment
-        %td= order.created_at
-
-        %td= link_to 'Show', order
-        %td= link_to 'Edit', edit_order_path(order)
-        %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
