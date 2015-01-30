@@ -8,7 +8,7 @@ RSpec.describe "line_items/edit", :type => :view do
     ))
   end
 
-  it "renders the edit line_item form" do
+  xit "renders the edit line_item form" do
     render
 
     assert_select "form[action=?][method=?]", line_item_path(@line_item), "post" do
