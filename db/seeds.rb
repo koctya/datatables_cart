@@ -15,13 +15,25 @@
               state:    Faker::Address.state,
               zip:      Faker::Address.zip)
 
-  p = Product.create( name: Faker::Commerce.product_name,
+  p1 = Product.create( name: Faker::Commerce.product_name,
+                  desc: Faker::Lorem.paragraph,
+                  price: Faker::Commerce.price)
+  p2 = Product.create( name: Faker::Commerce.product_name,
+                  desc: Faker::Lorem.paragraph,
+                  price: Faker::Commerce.price)
+  p3 = Product.create( name: Faker::Commerce.product_name,
+                  desc: Faker::Lorem.paragraph,
+                  price: Faker::Commerce.price)
+  p4 = Product.create( name: Faker::Commerce.product_name,
                   desc: Faker::Lorem.paragraph,
                   price: Faker::Commerce.price)
 
   o = Order.create(user: u)
 
-  li = LineItem.create(product: p, order: o)
+  LineItem.create(product: p1, order: o)
+  LineItem.create(product: p2, order: o)
+  LineItem.create(product: p3, order: o)
+  LineItem.create(product: p4, order: o)
 end
 
 
